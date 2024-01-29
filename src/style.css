@@ -9,30 +9,36 @@ body {
   height: 600px;
   width: 400px;
   display: flex;
+  min-width: 300px;
+  min-height: 400px;
 }
 
 p {
-  font-size: 125px;
+  font-size: 25px;
 }
 
 #number {
   font-size: 200px;
   text-align: center;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
+
 #card::before,
 #card::after {
-  /* content: ""; */
   font-size: 125px;
   position: absolute;
 }
 
 #card::before {
-  top: 20px;
   left: 20px;
+  top: -35px;
 }
 #card::after {
-  bottom: 20px;
+  bottom: -35px;
   right: 20px;
 }
 .card-body {
@@ -46,6 +52,7 @@ p {
 .spade::before,
 .spade::after {
   content: "♠";
+  color: black;
 }
 .heart::before,
 .heart::after {
@@ -60,10 +67,38 @@ p {
 .club::before,
 .club::after {
   content: "♣";
+  color: black;
 }
 .spade::after,
 .heart::after,
 .diamond::after,
 .club::after {
   transform: rotate(180deg);
+}
+
+.loader {
+  width: 12em;
+  height: 1em;
+  border-radius: 8px;
+  background-color: #ff564744;
+}
+
+.loader div {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #ff6947;
+  animation: width7435 11s linear infinite;
+  transition: all;
+}
+
+@keyframes width7435 {
+  from {
+    /*width: 0;*/
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
